@@ -12,11 +12,14 @@ import Vision
 
 class ViewController: UIViewController {
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureImagePicker()
+        activityIndicator.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +37,8 @@ class ViewController: UIViewController {
                 fatalError("Error loading classification results")
             }
             
+            self.activityIndicator.isHidden = true
+            self.activityIndicator.stopAnimating()
             if let firstResult = results.first {
                 if firstResult.identifier.contains("hotdog") {
                     self.navigationItem.title = "Hot Dog!"
@@ -42,7 +47,7 @@ class ViewController: UIViewController {
                 }
             }
         }
-        
+
         let handler = VNImageRequestHandler(ciImage: image)
         do {
             try handler.perform([request])
@@ -69,6 +74,9 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
         if let takenPhoto = info[UIImagePickerControllerOriginalImage] as? UIImage {
             photoImageView.image = takenPhoto
             guard let ciImage = CIImage(image: takenPhoto) else {

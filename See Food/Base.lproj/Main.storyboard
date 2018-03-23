@@ -21,13 +21,20 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Brn-Zd-ZgG">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="G4U-uN-9Wi">
+                                <rect key="frame" x="177" y="323.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Brn-Zd-ZgG" secondAttribute="trailing" id="2xl-j2-W1a"/>
                             <constraint firstItem="Brn-Zd-ZgG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="68e-69-sKS"/>
+                            <constraint firstItem="G4U-uN-9Wi" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GEs-lf-KN8"/>
+                            <constraint firstItem="G4U-uN-9Wi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LDK-pf-s5e"/>
                             <constraint firstItem="Brn-Zd-ZgG" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="MYo-ZZ-dYS"/>
+                            <constraint firstItem="G4U-uN-9Wi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RsQ-bE-WES"/>
                             <constraint firstItem="Brn-Zd-ZgG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="UZ8-8I-WAw"/>
+                            <constraint firstItem="G4U-uN-9Wi" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="do6-Le-ZCQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -39,6 +46,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="G4U-uN-9Wi" id="Znt-Zh-tPW"/>
                         <outlet property="photoImageView" destination="Brn-Zd-ZgG" id="1xk-on-hsm"/>
                     </connections>
                 </viewController>
